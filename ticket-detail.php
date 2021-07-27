@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $xml = simplexml_load_file("xml/tickets.xml");
 
 
@@ -20,8 +20,8 @@ foreach ($xml->children() as $p) {
         $status = ucfirst($p->attributes()->status);
         foreach($p->messages->children() as $m){
             $dt = new DateTime($m->attributes()->date);
-            $contents .= 'User ID: ' . $m->attributes()->id . '  Posted: ' . $dt->format('Y-m-d') .' <br>';
-            $contents .= $m . '<br><br>';
+            $contents .= '<div ><p class="text-danger">User ID: ' . $m->attributes()->id . '  Posted: ' . $dt->format('Y-m-d') .' </p>';
+            $contents .= '<p class="border rounded bg-primary text-white">' . $m . '</p> <br></div>';
         }
     }
     
@@ -41,10 +41,17 @@ function resolved($xml,$id){
     <meta charset="utf-8">
     <title>Support tickets</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+        }
+    </style>  
 </head>
   <body>
-      
+  <?php require_once 'ticket-nav.php'?>
         <h1>Ticket Details</h1>
         <div class="d-flex justify-content-between">
             <form action="ticket-listing.php" method="post">
@@ -56,9 +63,9 @@ function resolved($xml,$id){
             </form>
         </div>
         
-      <p>Ticket number: <?=$id?> </p>
-      <p>Open date: <?= $datetime->format('Y-m-d') ?>
-      <p>Status: <?= $status?></p>
+      <p class="text-secondary">Ticket number: <?=$id?> </p>
+      <p class="text-secondary">Open date: <?= $datetime->format('Y-m-d') ?>
+      <p class="text-secondary">Status: <?= $status?></p>
     <div>
         <?php print $contents ?>
     </div>

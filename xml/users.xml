@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
-
+<?xml version="1.0" encoding="utf-8"?>
 <users xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xsd/users.xsd">
     <user role="admin">
         <id>00001</id>
@@ -11,7 +10,7 @@
         <email>sample@sample.com</email>
         <account>
             <username>jhkim112</username>
-            <password>15E2B0D3C33891EBB0F1EF609EC419420C20E320CE94C65FBC8C3312448EB225</password>
+            <password>$2y$10$d.O603MP5dg4rade7F29/.mCwxs3aOyWteLAFkESFw4RMbRlMmFPC</password>
         </account>
     </user>
     <user role="user">
@@ -24,7 +23,7 @@
         <email>sample@sample.com</email>
         <account>
             <username>jhkopp65</username>
-            <password>8A9BCF1E51E812D0AF8465A8DBCC9F741064BF0AF3B3D08E6B0246437C19F7FB</password>
+            <password>$2y$10$tRSLNKON4cMftTb79GYLve7vc/L/MBshejmke8kyolpps3KrQNWAW</password>
         </account>
     </user>
     <user role="user">
@@ -37,7 +36,7 @@
         <email>sample@sample.com</email>
         <account>
             <username>mistergentle</username>
-            <password>617C062D7B882381C7B4AB2F0793DBD2926C8288C40F39ED03DB8864645B11C5</password>
+            <password>$2y$10$roWOERrPAx6UKG/YqfYivOLmpPhG5SGB3Um9grrW.5dnSJdQxymuK</password>
         </account>
     </user>
 </users>

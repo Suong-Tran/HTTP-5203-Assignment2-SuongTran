@@ -8,12 +8,12 @@
             <message id="00002" date="2021-05-21T12:30:50">There is no sounds from my app</message>
         </messages>
     </ticket>
-    <ticket id="00002" status="resolved">
+    <ticket id="00002" status="ongoing">
         <subject>Please fix</subject>
         <messages>
             <message id="00002" date="2021-05-21T12:20:50">Hi, I would like some helps please</message>
             <message id="00001" date="2021-05-21T12:25:00">Hello, how can I help?</message>
-            <message id="00002" date="2021-05-21T12:30:50">There is no sounds from my app</message>
+            <message id="00002" date="2021-05-21T12:30:50">Thanks</message>
         </messages>
     </ticket>
     <ticket id="00003" status="ongoing">
