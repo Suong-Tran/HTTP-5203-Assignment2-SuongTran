@@ -7,11 +7,16 @@ $xml->asXml('xml/tickets.xml');
 foreach ($xml->children() as $p) {
     $datetime = new DateTime($p->messages->message[1]->attributes()->date);
     $rows .= '<tr>';
-    $rows .= '<th>'. '<a href = "book.php?id='.$p->attributes()->id .'">' .$p->attributes()->id .'</a></th>';
+    $rows .= '<th>' .$p->attributes()->id .'</th>';
     $rows .= '<td>'. $datetime->format('Y-m-d') .'</td>';
     $rows .= '<th>'. ucfirst($p->attributes()->status) .'</th>';
     $rows .= '<td>'. $p->messages->message[1]->attributes()->id .'</td>';
     $rows .= '<td>'. $p->subject .'</td>';
+    $rows .= '<td>'.    '<form action="ticket-detail.php" method="post">
+                        <input type="hidden" name="id" value="'. $p->attributes()->id . '"/>
+                        <input type="submit" class="button btn btn-primary" name="ticketDetail" value="Detail"/>
+                        </form>'
+            . '</td>';
     $rows .= '<tr>';
   }
   ?>
