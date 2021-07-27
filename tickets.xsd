@@ -41,13 +41,13 @@
 
     <xs:simpleType name="ticketId">
         <xs:restriction base="xs:token">
-            <xs:pattern value="[0-9]{4}" />
+            <xs:pattern value="[0-9]{5}" />
         </xs:restriction>
     </xs:simpleType>
 
     <xs:simpleType name="userId">
         <xs:restriction base="xs:token">
-            <xs:pattern value="[0-9]{3}" />
+            <xs:pattern value="[0-9]{5}" />
         </xs:restriction>
     </xs:simpleType>
 
