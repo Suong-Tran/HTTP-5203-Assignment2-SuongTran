@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="users">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="user" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="id" type="userId" />
+                            <xs:element name="name">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="first" type="xs:string" />
+                                        <xs:element name="middle" type="xs:string" minOccurs="0" />
+                                        <xs:element name="last" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="email" type="email" />
+                            <xs:element name="account">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="username" type="xs:string" />
+                                        <xs:element name="password" type="xs:token" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="role" type="userRole" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="userId">
+        <xs:restriction base="xs:token">
+            <xs:pattern value="[0-9]{3}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="email">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[^@]+@[^\.]+\..+" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="userRole">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="admin" />
+            <xs:enumeration value="user" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

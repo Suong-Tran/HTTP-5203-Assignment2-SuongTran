@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<users xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="users.xsd">
+    <user role="admin">
+        <id>001</id>
+        <name>
+            <first>Juan</first>
+            <middle>H.</middle>
+            <last>Kim</last>
+        </name>
+        <email>sample@sample.com</email>
+        <account>
+            <username>jhkim112</username>
+            <password>15E2B0D3C33891EBB0F1EF609EC419420C20E320CE94C65FBC8C3312448EB225</password>
+        </account>
+    </user>
+    <user role="user">
+        <id>002</id>
+        <name>
+            <first>John</first>
+            <middle>Huan</middle>
+            <last>Kopp</last>
+        </name>
+        <email>sample@sample.com</email>
+        <account>
+            <username>jhkopp65</username>
+            <password>8A9BCF1E51E812D0AF8465A8DBCC9F741064BF0AF3B3D08E6B0246437C19F7FB</password>
+        </account>
+    </user>
+</users>
