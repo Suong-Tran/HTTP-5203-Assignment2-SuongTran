@@ -16,6 +16,7 @@ if(isset($_POST['login'])){
             setcookie('username', $user, $expire, '/', 'localhost', false, true);
             setcookie('role', $p->attributes()->role, $expire, '/', 'localhost', false, true);
             setcookie('id', $p->id, $expire, '/', 'localhost', false, true);
+            setcookie('name', $p->name->first, $expire, '/', 'localhost', false, true);
             setcookie('province', 'ON', $expire, '/', 'localhost', false, true);
             $login =  true;
             header('Location: ticket-listing.php');

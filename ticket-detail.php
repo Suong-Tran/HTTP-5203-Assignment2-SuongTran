@@ -53,7 +53,7 @@ function resolved($xml,$id){
 </head>
   <body>
   <?php require_once 'ticket-nav.php'?>
-        <h1>Ticket Details</h1>
+        <h1 class="text-info">Ticket Details</h1>
         <div class="d-flex justify-content-between">
             <form action="ticket-listing.php" method="post">
                 <input type="submit" class="button btn btn-primary" name="ticket-listing" value="Return"/>

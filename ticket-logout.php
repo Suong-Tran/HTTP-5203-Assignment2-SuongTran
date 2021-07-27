@@ -25,7 +25,7 @@ setcookie('username', '', $expire, '/', 'localhost', false, true);
   <?php require_once 'ticket-nav.php'?>
 
 
-    <h2 class="text-primary">You have successfully log out</h2>
+    <h2 class="text-info">You have successfully log out</h2>
     <div class="d-fex text-center">
         <form action="ticket-login.php" method="post" >
                     <input type="submit" class="button btn btn-primary align-middle" name="ticket-listing" value="Back to Log in"/>

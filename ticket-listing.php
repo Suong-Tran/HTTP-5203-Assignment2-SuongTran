@@ -8,6 +8,7 @@ $xml->asXml('xml/tickets.xml');
 
 $role = $_COOKIE['role'];
 $id = $_COOKIE['id'];
+$name = $_COOKIE['name'];
 
 if($role == 'admin'){
     foreach ($xml->children() as $p) {
@@ -59,6 +60,7 @@ if($role == 'admin'){
   </head>
   <body>
     <?php require_once 'ticket-nav.php'?>
+    <h2 class="text-info">Hello <?=$name?></h2>
     <table class="table">
       <thead>
         <tr>
