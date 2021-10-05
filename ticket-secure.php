@@ -1,6 +1,6 @@
 <?php
 
 if(!isset($_COOKIE['username'])){
-    header('Location: ticket-login.php');
+    header('Location: index.php');
 }
 ?>

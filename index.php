@@ -51,7 +51,7 @@ $xml->asXml('xml/users.xml');
     <div class="d-flex">
 
 
-        <form method="post" action="ticket-login.php">
+        <form method="post" action="index.php">
             <div class="form-group">
                 <label for='username'>Username: </label>
                 <input type='text' class="form-control" id="username" name="username" placeholder="Enter your username">
@@ -63,7 +63,7 @@ $xml->asXml('xml/users.xml');
             <input type="submit" class="button btn btn-primary" name="login" value="Login" />
         </form>
     </div>
-    <div class="pt-5">
+    <div class="pb-2">
             <table class="table">
                 <thead>
                     <tr>

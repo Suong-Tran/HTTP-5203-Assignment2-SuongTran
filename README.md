@@ -15,7 +15,7 @@ This page will display all the details about the ticket including the messages s
 
 #### Explanation
 
-- User can start with ticket-login.php page
+- User can start with index.php page
 - Username and password for some of the users are:
 ```
 username:jhkim112 password:123456 role:admin
