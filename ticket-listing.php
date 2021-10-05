@@ -36,6 +36,11 @@ if($role == 'admin'){
             $rows .= '<th>'. ucfirst($p->attributes()->status) .'</th>';
             $rows .= '<td>'. $p->messages->message[0]->attributes()->id .'</td>';
             $rows .= '<td>'. $p->subject .'</td>';
+            $rows .= '<td>'.    '<form action="ticket-continue.php" method="post">
+                            <input type="hidden" name="id" value="'. $p->attributes()->id . '"/>
+                            <input type="submit" class="button btn btn-primary" name="ticketContinue" value="Continue"/>
+                            </form>'
+                . '</td>';
             $rows .= '<tr>';
         }
         
