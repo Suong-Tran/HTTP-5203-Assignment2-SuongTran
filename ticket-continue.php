@@ -1,6 +1,7 @@
 <?php
+
 require_once 'ticket-secure.php';
-session_start();
+
 $xml = simplexml_load_file("xml/tickets.xml");
 
 $userId = $_COOKIE['id'];
@@ -53,6 +54,7 @@ function updateMess($xml, $id, $content, $userId)
     <title>Support tickets</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
     <style>
         body {
             max-width: 1200px;
@@ -64,35 +66,40 @@ function updateMess($xml, $id, $content, $userId)
 
 <body>
     <?php require_once 'ticket-nav.php' ?>
-    <h1 class="text-info">Ticket Details</h1>
-    <div class="d-flex justify-content-between">
-        <form action="ticket-listing.php" method="post">
-            <input type="submit" class="button btn btn-secondary" name="ticket-listing" value="Return" />
-        </form>
-    </div>
+    <main class="background">
+        <h1 class="text-info">Ticket Details</h1>
+        <div class="d-flex justify-content-between">
+            <form action="ticket-listing.php" method="post">
+                <input type="submit" class="button btn btn-secondary" name="ticket-listing" value="Return" />
+            </form>
+        </div>
 
-    <p class="text-secondary">Ticket number: <?= $id ?> </p>
-    <p class="text-secondary">Open date: <?= $datetime->format('Y-m-d') ?>
-    <p class="text-secondary">Status: <?= $status ?></p>
-    <div>
-        <?php print $contents ?>
-    </div>
-    <div>
-        <form action="ticket-continue.php" method="post">
-            <input type="hidden" name="id" value=" <?= $id ?> " />
-            <div class="input-group pb-3">
+        <p class="text-secondary">Ticket number: <?= $id ?> </p>
+        <p class="text-secondary">Open date: <?= $datetime->format('Y-m-d') ?>
+        <p class="text-secondary">Status: <?= $status ?></p>
+        <div>
+            <?php print $contents ?>
+        </div>
+        <div>
+            <form action="ticket-continue.php" method="post">
+                <input type="hidden" name="id" value=" <?= $id ?> " />
+                <div class="input-group pb-3">
 
-                <div class="form-group green-border-focus" style="width:100%;">
-                    <label for="mess-content">Enter your chat:</label>
-                    <textarea rows="5" class="form-control" name="mess-content" id="mess-content"></textarea>
+                    <div class="form-group green-border-focus" style="width:100%;">
+                        <label for="mess-content">Enter your chat:</label>
+                        <textarea rows="5" class="form-control" name="mess-content" id="mess-content"></textarea>
+                    </div>
+
                 </div>
+                <div class="text-center">
+                    <input type="submit" class="btn btn-outline-primary btn-lg mb-3" name="send-message" value="Send" />
+                </div>
+            </form>
+        </div>
+    </main>
 
-            </div>
-            <div class="text-center">
-                <input type="submit" class="btn btn-outline-primary btn-lg mb-3" name="send-message" value="Send" />
-            </div>
-        </form>
-    </div>
+    <hr />
+    <footer> &copy;2021 Copyright: All rights reserved.</footer>
 
 </body>
 

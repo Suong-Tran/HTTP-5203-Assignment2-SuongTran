@@ -1,21 +1,28 @@
 <?php
+//session_start();
 require_once 'ticket-secure.php';
-session_start();
 $xml = simplexml_load_file("xml/tickets.xml");
 
-$userId = $_COOKIE['id'];
+$userId = htmlspecialchars($_COOKIE['id']);
 $id = "";
+
 if (isset($_POST['ticketDetail'])) {
+
     $id = $_POST['id'];
 } else if (isset($_POST['update-status'])) {
+
     $id = $_POST['id'];
+
     resolved($xml, $id);
+
 } else if (isset($_POST['send-message'])) {
-    $id = $_POST['id'];
+    $id = htmlspecialchars($_POST['id']);
     $messContent = htmlspecialchars($_POST['mess-content']);
     updateMess($xml, $id, $messContent, $userId);
 }
+
 $xml->asXml('xml/tickets.xml');
+
 
 
 $contents = $datetime = $status = $style = '';
@@ -40,7 +47,7 @@ function resolved($xml, $id)
 {
     foreach ($xml->children() as $p) {
         if ($p->attributes()->id == $id) {
-            $p->attributes()->status = "resolved";
+            $p->attributes()->status = htmlspecialchars("resolved");
         }
     }
 }
@@ -64,6 +71,7 @@ function updateMess($xml, $id, $content, $userId)
     <title>Support tickets</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
     <style>
         body {
             max-width: 1200px;
@@ -75,6 +83,7 @@ function updateMess($xml, $id, $content, $userId)
 
 <body>
     <?php require_once 'ticket-nav.php' ?>
+    <main class="background">
     <h1 class="text-info">Ticket Details</h1>
     <div class="d-flex justify-content-between">
         <form action="ticket-listing.php" method="post">
@@ -87,6 +96,7 @@ function updateMess($xml, $id, $content, $userId)
     </div>
 
     <p class="text-secondary">Ticket number: <?= $id ?> </p>
+    <?php echo $status ?>
     <p class="text-secondary">Open date: <?= $datetime->format('Y-m-d') ?>
     <p class="text-secondary">Status: <?= $status ?></p>
     <div>
@@ -107,6 +117,10 @@ function updateMess($xml, $id, $content, $userId)
 
         </form>
     </div>
+    </main>
+    <hr/>
+    <footer> &copy;2021 Copyright: All rights reserved.</footer>
+    
 </body>
 
 </html>
