@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tickets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xsd/tickets.xsd">
-    <ticket id="00001" status="ongoing">
+    <ticket id="00001" status="resolved">
         <subject>No sounds on app</subject>
         <messages>
             <message id="00002" date="2021-05-21T12:20:50">Hi, I would like some helps please</message>
             <message id="00001" date="2021-05-21T12:25:00">Hello, how can I help?</message>
             <message id="00002" date="2021-05-21T12:30:50">There is no sounds from my app</message>
-        </messages>
+        <message id="00001" date="2021-10-06T04:28:34">Hi</message></messages>
     </ticket>
-    <ticket id="00002" status="ongoing">
+    <ticket id="00002" status="resolved">
         <subject>Please fix</subject>
         <messages>
             <message id="00002" date="2021-05-21T12:20:50">Hi, I would like some helps please</message>
@@ -16,7 +16,7 @@
             <message id="00002" date="2021-05-21T12:30:50">Thanks</message>
         </messages>
     </ticket>
-    <ticket id="00003" status="ongoing">
+    <ticket id="00003" status="resolved">
         <subject>Would you kindly</subject>
         <messages>
             <message id="00003" date="2021-05-21T12:20:50">Hi, I would like some helps please</message>

@@ -1,10 +1,10 @@
 <?php
-
+session_start();
 require_once 'ticket-secure.php';
 
 $xml = simplexml_load_file("xml/tickets.xml");
 
-$userId = $_COOKIE['id'];
+$userId = (string)($_SESSION['id']);
 $id = $messContent = "";
 if (isset($_POST['ticketContinue'])) {
     $id = $_POST['id'];
@@ -82,7 +82,7 @@ function updateMess($xml, $id, $content, $userId)
         </div>
         <div>
             <form action="ticket-continue.php" method="post">
-                <input type="hidden" name="id" value=" <?= $id ?> " />
+                <input type="hidden" name="id" value="<?= $id ?>" />
                 <div class="input-group pb-3">
 
                     <div class="form-group green-border-focus" style="width:100%;">

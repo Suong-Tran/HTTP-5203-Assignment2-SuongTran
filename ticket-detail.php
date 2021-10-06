@@ -1,18 +1,15 @@
 <?php
-//session_start();
+session_start();
 require_once 'ticket-secure.php';
 $xml = simplexml_load_file("xml/tickets.xml");
 
-$userId = htmlspecialchars($_COOKIE['id']);
+$userId = (string)($_SESSION['id']);
 $id = "";
 
 if (isset($_POST['ticketDetail'])) {
-
     $id = $_POST['id'];
 } else if (isset($_POST['update-status'])) {
-
     $id = $_POST['id'];
-
     resolved($xml, $id);
 
 } else if (isset($_POST['send-message'])) {
@@ -21,6 +18,7 @@ if (isset($_POST['ticketDetail'])) {
     updateMess($xml, $id, $messContent, $userId);
 }
 
+//echo $xml->asXML();
 $xml->asXml('xml/tickets.xml');
 
 
@@ -46,8 +44,10 @@ foreach ($xml->children() as $p) {
 function resolved($xml, $id)
 {
     foreach ($xml->children() as $p) {
-        if ($p->attributes()->id == $id) {
+        //echo ((string)$p->attributes()->id == $id) . " ";
+        if ( $p->attributes()->id == (string)$id) {
             $p->attributes()->status = htmlspecialchars("resolved");
+            //echo $p->attributes()->status;
         }
     }
 }
@@ -90,7 +90,7 @@ function updateMess($xml, $id, $content, $userId)
             <input type="submit" class="button btn btn-secondary" name="ticket-listing" value="Return" />
         </form>
         <form action="ticket-detail.php" method="post">
-            <input type="hidden" name="id" value=" <?= $id ?> " />
+            <input type="hidden" name="id" value="<?= $id ?>" />
             <input type="submit" class="btn btn-outline-warning" name="update-status" value="Solved" />
         </form>
     </div>
@@ -104,7 +104,7 @@ function updateMess($xml, $id, $content, $userId)
     </div>
     <div>
         <form action="ticket-detail.php" method="post">
-            <input type="hidden" name="id" value=" <?= $id ?> " />
+            <input type="hidden" name="id" value="<?= $id ?>" />
             <div class="input-group pb-3">
                 <div class="form-group green-border-focus" style="width:100%;">
                     <label for="mess-content">Enter your chat:</label>

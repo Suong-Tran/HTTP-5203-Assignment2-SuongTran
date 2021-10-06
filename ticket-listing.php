@@ -6,10 +6,13 @@ $rows = '';
 $xml = simplexml_load_file("xml/tickets.xml");
 $xml->asXml('xml/tickets.xml');
 
+$role = $_SESSION['role'];
+$id = $_SESSION['id'];
+$name = $_SESSION['name'];
 
-$role = $_COOKIE['role'];
+/* $role = $_COOKIE['role'];
 $id = $_COOKIE['id'];
-$name = $_COOKIE['name'];
+$name = $_COOKIE['name']; */
 
 if ($role == 'admin') {
   foreach ($xml->children() as $p) {

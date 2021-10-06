@@ -1,8 +1,12 @@
 <?php
 
-$expire = time() - 3600;
+/* $expire = time() - 3600;
 
-setcookie('username', '', $expire, '/', 'support-ticket.suongtran.com', false, true);
+setcookie('username', '', $expire, '/', 'support-ticket.suongtran.com', false, true); */
+session_start();
+unset($_SESSION['username']);
+session_destroy();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
