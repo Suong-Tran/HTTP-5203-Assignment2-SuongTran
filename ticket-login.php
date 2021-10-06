@@ -69,19 +69,22 @@ $xml->asXml('xml/users.xml');
     <? //php require_once 'ticket-nav.php' 
     ?>
     <main class="background">
-        <h2>Login form</h2>
-        <div class="d-flex">
-            <form method="post" action="ticket-login.php">
-                <div class="form-group">
-                    <label for='username'>Username: </label>
-                    <input type='text' class="form-control" id="username" name="username" placeholder="Enter your username">
-                </div>
-                <div class="form-group">
-                    <label for='password'>Password: </label>
-                    <input type='password' class="form-control" id="password" name="password" placeholder="Enter you password">
-                </div>
-                <input type="submit" class="button btn btn-primary" name="login" value="Login" />
-            </form>
+        <h2>Support Ticket</h2>
+        <div class="d-flex justify-content-center pb-3">
+            <div>
+                <form method="post" action="ticket-login.php" >
+                    <div class="form-group">
+                        <label for='username'>Username: </label>
+                        <input type='text' class="form-control" id="username" name="username" placeholder="Enter your username">
+                    </div>
+                    <div class="form-group">
+                        <label for='password'>Password: </label>
+                        <input type='password' class="form-control" id="password" name="password" placeholder="Enter you password">
+                    </div>
+                    <input type="submit" class="button btn btn-primary align-middle" name="login" value="Login" />
+                </form>
+            </div>
+
         </div>
         <div class="pb-2">
             <table class="table">
@@ -117,7 +120,7 @@ $xml->asXml('xml/users.xml');
         </div>
     </main>
     <hr />
-    <footer> &copy;2021 Copyright: All rights reserved.</footer>
+    <footer class="align-middle"> &copy;2021 Copyright: All rights reserved.</footer>
 </body>
 
 
